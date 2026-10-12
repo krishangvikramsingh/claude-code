@@ -1,3 +1,1 @@
-<!-- only the line below is needed in addition to the default manifest,
-     because the link in index.html loads a page from the internet -->
 <uses-permission android:name="android.permission.INTERNET" />

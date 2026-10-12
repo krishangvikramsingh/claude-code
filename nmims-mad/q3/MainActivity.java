@@ -27,13 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         btnShow.setOnClickListener(v -> {
             int day = datePicker.getDayOfMonth();
-            int month = datePicker.getMonth() + 1;   // months start from 0
+            int month = datePicker.getMonth() + 1;
             int year = datePicker.getYear();
 
-            int hour = timePicker.getHour();         // 24 hour value
+            int hour = timePicker.getHour();
             int minute = timePicker.getMinute();
 
-            // convert to 12 hour format for display
             String amPm = (hour >= 12) ? "PM" : "AM";
             int hour12 = hour % 12;
             if (hour12 == 0) hour12 = 12;

@@ -9,7 +9,6 @@
         android:label="Place Finder"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
-        <!-- paste your own Google Maps API key here -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_API_KEY_HERE" />

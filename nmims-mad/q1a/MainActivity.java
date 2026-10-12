@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         tvResult = findViewById(R.id.tvResult);
     }
 
-    // Called by the Save button
     public void saveProduct(View v) {
         String id = etId.getText().toString().trim();
         String name = etName.getText().toString().trim();
@@ -45,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // a comma inside the name would break the csv, so replace it
         name = name.replace(",", " ");
         String line = id + "," + name + "," + price + "," + qty + "\n";
 
@@ -63,12 +61,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Called by the Show All button
     public void showAll(View v) {
         tvResult.setText(readFile(null));
     }
 
-    // Called by the Search button (searches using the ID box)
     public void searchById(View v) {
         String id = etId.getText().toString().trim();
         if (id.isEmpty()) {
@@ -78,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         tvResult.setText(readFile(id));
     }
 
-    // Reads the csv file. If searchId is null every product is returned.
     private String readFile(String searchId) {
         StringBuilder sb = new StringBuilder();
         try {

@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnCapture;
     ImageView imgPhoto;
 
-    // This receives the result once the camera app closes
     ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         imgPhoto = findViewById(R.id.imgPhoto);
 
         btnCapture.setOnClickListener(v -> {
-            // implicit intent - we only say WHAT we want, Android picks the camera app
+
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             try {
                 cameraLauncher.launch(intent);

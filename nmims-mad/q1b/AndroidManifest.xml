@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- camera is optional so the app can still install on devices without one -->
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <!-- needed on Android 11+ so we can see if a camera app exists -->
     <queries>
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />

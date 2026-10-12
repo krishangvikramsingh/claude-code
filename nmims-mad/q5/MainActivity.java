@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         myMap = googleMap;
         myMap.getUiSettings().setZoomControlsEnabled(true);
 
-        // start with Mumbai on the screen
         LatLng mumbai = new LatLng(19.0760, 72.8777);
         myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mumbai, 10));
     }
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         try {
-            // converts the name into latitude and longitude
+
             List<Address> list = geocoder.getFromLocationName(place, 1);
             if (list == null || list.isEmpty()) {
                 Toast.makeText(this, "Place not found", Toast.LENGTH_SHORT).show();

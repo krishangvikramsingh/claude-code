@@ -33,12 +33,8 @@ public class MainActivity extends AppCompatActivity {
             int hour = timePicker.getHour();
             int minute = timePicker.getMinute();
 
-            String amPm = (hour >= 12) ? "PM" : "AM";
-            int hour12 = hour % 12;
-            if (hour12 == 0) hour12 = 12;
-
-            String date = day + "/" + month + "/" + year;
-            String time = String.format("%02d:%02d %s", hour12, minute, amPm);
+            String date = String.format("%02d-%02d-%d", day, month, year);
+            String time = String.format("%02d:%02d", hour, minute);
 
             tvResult.setText("Selected Date: " + date + "\nSelected Time: " + time);
         });

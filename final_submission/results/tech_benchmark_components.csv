@@ -1,0 +1,31 @@
+operation,implementation,median_ms,q25_ms,q75_ms,includes_process_and_io,agreement,speed_vs_project
+2-D DCT-II 256x256,scipy.fftpack.dct (project),0.4299,0.4014,0.4448,False,max rel. diff 0.0e+00,1.0
+2-D DCT-II 256x256,scipy.fft.dctn,0.4372,0.4325,0.4503,False,max rel. diff 2.7e-16,0.9833
+2-D DCT-II 256x256,cv2.dct,0.6512,0.6299,0.6633,False,max rel. diff 8.5e-16,0.6602
+2-D DCT-II 256x256,NumPy matrix C.A.C^T,1.2762,1.2059,1.5154,False,max rel. diff 4.6e-15,0.3369
+SVD 256x256,numpy.linalg.svd (project),11.6336,11.534,11.7014,False,max rel. diff 0.0e+00,1.0
+SVD 256x256,scipy.linalg.svd (gesdd),9.7692,9.6674,9.827,False,max rel. diff 1.5e-18,1.1908
+SVD 256x256,scipy.linalg.svd (gesvd),62.9469,62.6744,63.3915,False,max rel. diff 1.5e-16,0.1848
+SVD 256x256,cv2.SVDecomp,15.2988,15.2499,15.548,False,max rel. diff 1.5e-16,0.7604
+Haar DWT level-1 (LL) 512x512,PyWavelets dwt2 (project),3.6554,3.5531,3.7111,False,max abs diff 0.0e+00,1.0
+Haar DWT level-1 (LL) 512x512,NumPy slicing,0.3267,0.3236,0.3674,False,max abs diff 1.1e-13,11.1885
+"JPEG round-trip Q=50, 512x512",Pillow (project),1.2448,1.2012,1.2771,False,identical,1.0
+"JPEG round-trip Q=50, 512x512",OpenCV imencode/imdecode,0.9743,0.9589,1.0067,False,identical,1.2777
+"JPEG round-trip Q=50, 512x512",ImageMagick convert (process + file I/O),48.6413,46.2078,51.2571,True,PSNR 48.8 dB,0.0256
+Median filter 3x3,scipy.ndimage (project),20.883,20.5673,21.6626,False,identical,1.0
+Median filter 3x3,cv2.medianBlur (uint8),0.0616,0.0609,0.0638,False,identical,339.1586
+Median filter 3x3,skimage.filters.median (uint8),27.018,24.2168,27.369,False,identical,0.7729
+Gaussian blur sigma=1.5,scipy.ndimage (project),4.5311,4.4705,4.945,False,identical,1.0
+Gaussian blur sigma=1.5,cv2.GaussianBlur,1.0413,0.9811,1.1203,False,PSNR 320.0 dB,4.3513
+Gaussian blur sigma=1.5,skimage.filters.gaussian,4.6085,4.575,4.8766,False,PSNR 78.8 dB,0.9832
+Rotation 15 deg (bilinear),skimage.transform.rotate (project),6.1262,6.059,6.2673,False,PSNR 168.1 dB (interior),1.0
+Rotation 15 deg (bilinear),cv2.warpAffine,1.2078,1.1637,1.2711,False,PSNR 64.2 dB (interior),5.0722
+Rotation 15 deg (bilinear),Pillow Image.rotate,3.1965,3.0867,3.2425,False,PSNR 53.4 dB (interior),1.9166
+Down/up-scale 0.5x,skimage.transform.resize (project),11.0605,10.7268,12.1049,False,identical,1.0
+Down/up-scale 0.5x,"cv2.resize (AREA down, LINEAR up)",0.2913,0.2864,0.3024,False,PSNR 52.4 dB,37.9671
+Down/up-scale 0.5x,Pillow resize (BILINEAR),1.7837,1.7621,1.8494,False,PSNR 48.6 dB,6.2007
+Histogram equalisation,skimage.exposure.equalize_hist (project),7.8626,7.791,8.1337,False,identical,1.0
+Histogram equalisation,cv2.equalizeHist (uint8),0.4167,0.4025,0.4215,False,PSNR 53.3 dB,18.8708
+PSNR 512x512,skimage.metrics (project),0.7172,0.7002,0.7264,False,48.1308 vs 48.1308,1.0
+PSNR 512x512,cv2.PSNR,0.302,0.3,0.3191,False,48.1308 vs 48.1308,2.3752
+PSNR 512x512,NumPy formula,0.6744,0.6696,0.7055,False,48.1308 vs 48.1308,1.0634

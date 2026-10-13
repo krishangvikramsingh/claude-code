@@ -1,0 +1,3 @@
+alpha=0.1  PSNR= 98.24 dB | genuine NC=0.981 | UNwatermarked host NC=0.981 | other image NC=0.426 | logo B decoded with key A NC_A=0.981
+alpha=1.0  PSNR= 78.26 dB | genuine NC=0.981 | UNwatermarked host NC=0.981 | other image NC=0.660 | logo B decoded with key A NC_A=0.981
+alpha=5.0  PSNR= 64.37 dB | genuine NC=0.981 | UNwatermarked host NC=0.981 | other image NC=0.833 | logo B decoded with key A NC_A=0.981

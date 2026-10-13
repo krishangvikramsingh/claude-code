@@ -1,0 +1,37 @@
+scheme,attack,mean_ber,median_ber,mean_nc,psnr_db,t_embed_ms,t_extract_ms,ber_le_0_10,n
+Project: global DWT-DCT-SVD,No Attack,0.0096,0.001,0.9323,35.9445,31.9222,17.8579,0.9333,30
+Project: global DWT-DCT-SVD,JPEG Q=50,0.0097,0.001,0.9302,35.9445,31.9222,17.4536,0.9333,30
+Project: global DWT-DCT-SVD,JPEG Q=20,0.0099,0.001,0.9281,35.9445,31.9222,17.1421,0.9333,30
+Project: global DWT-DCT-SVD,Gaussian Noise (var=0.02),0.0382,0.0355,0.8014,35.9445,31.9222,17.4977,0.9,30
+Project: global DWT-DCT-SVD,Median Filter 3x3,0.0045,0.0012,0.9818,35.9445,31.9222,18.7309,1.0,30
+Project: global DWT-DCT-SVD,Gaussian Blur (sigma=1.5),0.0221,0.0094,0.8892,35.9445,31.9222,17.5049,0.9333,30
+Project: global DWT-DCT-SVD,Rotation 5 deg,0.0291,0.031,0.8666,35.9445,31.9222,17.5813,0.9333,30
+Project: global DWT-DCT-SVD,Cropping 25%,0.1354,0.131,0.0028,35.9445,31.9222,16.0485,0.0,30
+Project: global DWT-DCT-SVD,Scaling 0.5x,0.0154,0.0061,0.9146,35.9445,31.9222,16.9209,0.9333,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),No Attack,0.0036,0.0,0.983,42.3777,419.7066,316.1891,1.0,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),JPEG Q=50,0.0044,0.0002,0.9793,42.3777,419.7066,326.6783,1.0,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),JPEG Q=20,0.074,0.0623,0.7676,42.3777,419.7066,320.9912,0.7667,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Gaussian Noise (var=0.02),0.0055,0.0011,0.9745,42.3777,419.7066,320.2923,1.0,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Median Filter 3x3,0.0036,0.0,0.9832,42.3777,419.7066,312.5703,1.0,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Gaussian Blur (sigma=1.5),0.0044,0.0,0.9781,42.3777,419.7066,314.2426,0.9667,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Rotation 5 deg,0.214,0.2172,0.1435,42.3777,419.7066,314.7817,0.0,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Cropping 25%,0.0605,0.0586,0.7251,42.3777,419.7066,292.6798,0.9667,30
+blind-watermark 0.4.4 (block DWT-DCT-SVD),Scaling 0.5x,0.0039,0.0,0.9813,42.3777,419.7066,307.6082,1.0,30
+Baseline: spatial LSB,No Attack,0.0,0.0,1.0,69.4822,1.6636,0.8499,1.0,30
+Baseline: spatial LSB,JPEG Q=50,0.4264,0.4852,0.2044,69.4822,1.6636,0.5318,0.0,30
+Baseline: spatial LSB,JPEG Q=20,0.5308,0.5065,0.26,69.4822,1.6636,0.5048,0.0,30
+Baseline: spatial LSB,Gaussian Noise (var=0.02),0.5005,0.4987,0.2526,69.4822,1.6636,0.508,0.0,30
+Baseline: spatial LSB,Median Filter 3x3,0.0811,0.0868,0.6848,69.4822,1.6636,0.6651,0.8333,30
+Baseline: spatial LSB,Gaussian Blur (sigma=1.5),0.4561,0.4952,0.2621,69.4822,1.6636,0.5599,0.0,30
+Baseline: spatial LSB,Rotation 5 deg,0.5043,0.5083,0.278,69.4822,1.6636,0.5287,0.0,30
+Baseline: spatial LSB,Cropping 25%,0.1284,0.1284,0.0,69.4822,1.6636,0.5239,0.0,30
+Baseline: spatial LSB,Scaling 0.5x,0.4545,0.4973,0.2632,69.4822,1.6636,0.5187,0.0,30
+Baseline: 8x8 block DCT,No Attack,0.0,0.0,1.0,35.1145,25.6124,12.0623,1.0,30
+Baseline: 8x8 block DCT,JPEG Q=50,0.2964,0.3124,0.4119,35.1145,25.6124,11.8166,0.0333,30
+Baseline: 8x8 block DCT,JPEG Q=20,0.469,0.4707,0.248,35.1145,25.6124,11.8742,0.0,30
+Baseline: 8x8 block DCT,Gaussian Noise (var=0.02),0.1823,0.1766,0.5714,35.1145,25.6124,11.9298,0.0,30
+Baseline: 8x8 block DCT,Median Filter 3x3,0.0469,0.024,0.8706,35.1145,25.6124,11.9398,0.9,30
+Baseline: 8x8 block DCT,Gaussian Blur (sigma=1.5),0.1056,0.0809,0.7508,35.1145,25.6124,11.9719,0.5333,30
+Baseline: 8x8 block DCT,Rotation 5 deg,0.4927,0.4921,0.2807,35.1145,25.6124,11.699,0.0,30
+Baseline: 8x8 block DCT,Cropping 25%,0.124,0.124,0.185,35.1145,25.6124,11.5657,0.0,30
+Baseline: 8x8 block DCT,Scaling 0.5x,0.4835,0.4863,0.2934,35.1145,25.6124,11.9691,0.0,30

@@ -1,0 +1,37 @@
+{
+  "alpha": 0.1,
+  "image_size": 512,
+  "logo_size": 64,
+  "logo_text": "CYBERION",
+  "other_logos": [
+    "OTHERLOGO",
+    "OWNER-B"
+  ],
+  "protocols": [
+    "uint8",
+    "float"
+  ],
+  "primary_protocol": "uint8",
+  "base_seed": 20260713,
+  "alphas": [
+    0.02,
+    0.05,
+    0.08,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "sweep_attacks": [
+    "JPEG Q=50",
+    "Gaussian Noise (var=0.02)",
+    "Gaussian Blur (sigma=1.5)",
+    "Rotation 5 deg"
+  ],
+  "n_controls_per_image": 5,
+  "nc_threshold": 0.75,
+  "data_dir": "../../data",
+  "results_dir": "../../results",
+  "outputs_dir": "../../outputs"
+}

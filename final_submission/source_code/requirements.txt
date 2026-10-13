@@ -1,0 +1,15 @@
+# Versions with which every number in this submission was produced (Python 3.13).
+numpy==2.5.3
+scipy==1.18.1
+scikit-image==0.26.0
+PyWavelets>=1.8        # distribution metadata 1.10.0; module attribute reports 1.8.0
+Pillow==12.3.0
+pandas==3.0.5
+matplotlib==3.11.2
+opencv-python-headless==5.0.0.93   # benchmark_tech.py and video_demo.py only
+blind-watermark==0.4.4             # benchmark_tech.py only
+imagehash==4.3.2                   # not required (build_dataset.py has its own hash); used only while curating
+python-docx==1.2.0                 # report/presentation builders
+python-pptx==1.0.2
+pytest>=8
+# System tools used by optional scripts: ffmpeg (video_demo.py), ImageMagick `convert` (benchmark_tech.py).

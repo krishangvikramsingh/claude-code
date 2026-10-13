@@ -1,0 +1,31 @@
+Host Image,Attack,Watermarked PSNR (dB),Watermarked SSIM,Extracted NC,Extracted BER
+cameraman,No Attack,35.62,0.9981,0.981,0.0007
+cameraman,JPEG Q=90,35.62,0.9981,0.9847,0.0007
+cameraman,JPEG Q=50,35.62,0.9981,0.9844,0.0007
+cameraman,JPEG Q=20,35.62,0.9981,0.984,0.0005
+cameraman,Gaussian Noise (var=0.005),35.62,0.9981,0.9582,0.0063
+cameraman,Gaussian Noise (var=0.02),35.62,0.9981,0.8071,0.0388
+cameraman,Salt & Pepper (2%),35.62,0.9981,0.9249,0.0349
+cameraman,Median Filter 3x3,35.62,0.9981,0.9805,0.0007
+cameraman,Gaussian Blur (sigma=1.5),35.62,0.9981,0.9572,0.0068
+cameraman,Rotation 5 deg,35.62,0.9981,0.9318,0.0061
+cameraman,Rotation 15 deg,35.62,0.9981,0.7879,0.0349
+cameraman,Cropping 25%,35.62,0.9981,0.0,0.1296
+cameraman,Scaling 0.5x,35.62,0.9981,0.969,0.0049
+cameraman,Histogram Equalization,35.62,0.9981,0.095,0.1294
+cameraman,Sharpening,35.62,0.9981,0.9804,0.0005
+astronaut_gray,No Attack,35.654,0.9931,0.979,0.0007
+astronaut_gray,JPEG Q=90,35.654,0.9931,0.982,0.001
+astronaut_gray,JPEG Q=50,35.654,0.9931,0.9811,0.0015
+astronaut_gray,JPEG Q=20,35.654,0.9931,0.9787,0.0024
+astronaut_gray,Gaussian Noise (var=0.005),35.654,0.9931,0.8738,0.0364
+astronaut_gray,Gaussian Noise (var=0.02),35.654,0.9931,0.7758,0.0444
+astronaut_gray,Salt & Pepper (2%),35.654,0.9931,0.9265,0.0349
+astronaut_gray,Median Filter 3x3,35.654,0.9931,0.9813,0.0007
+astronaut_gray,Gaussian Blur (sigma=1.5),35.654,0.9931,0.9455,0.0095
+astronaut_gray,Rotation 5 deg,35.654,0.9931,0.8708,0.0342
+astronaut_gray,Rotation 15 deg,35.654,0.9931,0.737,0.0608
+astronaut_gray,Cropping 25%,35.654,0.9931,0.0051,0.134
+astronaut_gray,Scaling 0.5x,35.654,0.9931,0.9627,0.0063
+astronaut_gray,Histogram Equalization,35.654,0.9931,0.6641,0.1086
+astronaut_gray,Sharpening,35.654,0.9931,0.9757,0.0007

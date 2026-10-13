@@ -1,0 +1,7 @@
+control,n,mean_nc,median,p95,max,frac_ge_0_75,frac_ge_0_90,mean_zncc,p95_zncc,max_zncc,frac_zncc_ge_0_75
+"genuine: own key, clean watermarked image",100,0.9767,0.9809,0.9812,0.9826,1.0,0.99,0.9738,0.9787,0.9805,1.0
+"a: other host, UNwatermarked, key of image i",500,0.3684,0.4004,0.8037,0.9451,0.098,0.008,0.2567,0.7762,0.9392,0.092
+"b: other host, watermarked, key of image i",500,0.4011,0.4181,0.8317,0.9243,0.126,0.01,0.2978,0.8064,0.9133,0.11
+"c: same host, different logo embedded, decoded with key A (NC vs logo A)",200,0.9754,0.9795,0.9799,0.9827,1.0,0.99,0.9723,0.9774,0.9806,1.0
+"c-ref: same host, logo B decoded with its own key (NC vs logo B)",200,0.9772,0.9812,0.9816,0.9851,1.0,0.99,0.9744,0.9792,0.9834,1.0
+"d: own host unwatermarked, own key (degenerate)",100,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

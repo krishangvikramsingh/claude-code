@@ -1,0 +1,15 @@
+attack,rho_contrast,p_contrast,rho_mean_intensity,p_mean_intensity
+JPEG Q=90,-0.209,0.0369,0.0456,0.6522
+JPEG Q=50,-0.2081,0.0377,0.0723,0.4749
+JPEG Q=20,-0.2941,0.003,0.0805,0.4262
+Gaussian Noise (var=0.005),-0.438,0.0,0.0605,0.5499
+Gaussian Noise (var=0.02),-0.6508,0.0,-0.0995,0.3246
+Salt & Pepper (2%),-0.682,0.0,0.0842,0.4047
+Median Filter 3x3,0.0696,0.4917,-0.0589,0.5608
+Gaussian Blur (sigma=1.5),-0.2417,0.0154,-0.0569,0.5742
+Rotation 5 deg,-0.379,0.0001,0.0007,0.9947
+Rotation 15 deg,-0.5525,0.0,-0.2,0.046
+Cropping 25%,-0.3596,0.0002,-0.2608,0.0088
+Scaling 0.5x,-0.2469,0.0133,-0.044,0.6639
+Histogram Equalization,0.0619,0.5408,-0.3104,0.0017
+Sharpening,-0.3443,0.0005,-0.0199,0.844

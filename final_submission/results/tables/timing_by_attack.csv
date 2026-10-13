@@ -1,0 +1,16 @@
+attack,t_attack_ms,t_extract_ms
+Cropping 25%,1.113,17.748
+Gaussian Blur (sigma=1.5),5.412,20.02
+Gaussian Noise (var=0.005),8.401,20.275
+Gaussian Noise (var=0.02),9.098,19.845
+Histogram Equalization,14.127,19.386
+JPEG Q=20,3.975,19.132
+JPEG Q=50,3.155,20.56
+JPEG Q=90,4.749,19.54
+Median Filter 3x3,33.309,20.643
+No Attack,0.172,20.402
+Rotation 15 deg,7.972,21.178
+Rotation 5 deg,7.909,18.976
+Salt & Pepper (2%),5.564,20.116
+Scaling 0.5x,11.763,20.512
+Sharpening,7.06,19.245

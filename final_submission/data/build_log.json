@@ -1,0 +1,15 @@
+{
+  "images_written": 100,
+  "real": 94,
+  "synthetic": 6,
+  "skipped": [
+    [
+      "tfm_beach",
+      "near-duplicate of dkn_kite"
+    ],
+    [
+      "pil_heather",
+      "too small (300x225)"
+    ]
+  ]
+}

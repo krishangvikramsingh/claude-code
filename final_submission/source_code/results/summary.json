@@ -1,0 +1,13 @@
+{
+  "alpha_used_main_experiment": 0.1,
+  "hosts": [
+    "cameraman",
+    "astronaut_gray"
+  ],
+  "num_attacks_tested": 15,
+  "mean_watermarked_psnr_db": 35.637,
+  "mean_watermarked_ssim": 0.9956,
+  "mean_nc_all_attacks": 0.8322,
+  "attacks_with_NC_above_0.75": 25,
+  "attacks_total_rows": 30
+}

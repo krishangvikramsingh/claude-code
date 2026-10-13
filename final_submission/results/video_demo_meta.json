@@ -1,0 +1,20 @@
+{
+  "vtest.avi": {
+    "fps": 10.0,
+    "total_frames": 795,
+    "width": 768,
+    "height": 576,
+    "frames_read": 60,
+    "embed_ms_per_frame": 41.01121903333175,
+    "embed_fps_single_thread": 24.38357170478773
+  },
+  "Megamind.avi": {
+    "fps": 23.976,
+    "total_frames": 270,
+    "width": 720,
+    "height": 528,
+    "frames_read": 60,
+    "embed_ms_per_frame": 32.11591748333831,
+    "embed_fps_single_thread": 31.13720791314147
+  }
+}

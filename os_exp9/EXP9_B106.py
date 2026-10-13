@@ -1,19 +1,10 @@
-"""
-Experiment No. 09 - Page Replacement Algorithms (FIFO, LRU, Optimal)
-Name  : Krishang Vikram Singh
-Roll  : B106          Batch : C1
-Class : B.Tech CE     DOS & DOE : 13/10/24
-Course: Operating Systems, NMIMS MPSTME Mumbai
-"""
-
-
 def fifo(pages, frames):
     mem, faults, steps = [], 0, []
     for p in pages:
         if p not in mem:
             faults += 1
             if len(mem) == frames:
-                mem.pop(0)              # oldest page leaves
+                mem.pop(0)
             mem.append(p)
             steps.append((p, list(mem), "Fault"))
         else:
@@ -22,16 +13,16 @@ def fifo(pages, frames):
 
 
 def lru(pages, frames):
-    mem, faults, steps = [], 0, []      # mem[0] = least recently used
+    mem, faults, steps = [], 0, []
     for p in pages:
         if p in mem:
             mem.remove(p)
-            mem.append(p)               # now most recently used
+            mem.append(p)
             steps.append((p, list(mem), "Hit"))
         else:
             faults += 1
             if len(mem) == frames:
-                mem.pop(0)              # evict least recently used
+                mem.pop(0)
             mem.append(p)
             steps.append((p, list(mem), "Fault"))
     return faults, steps
@@ -48,7 +39,6 @@ def optimal(pages, frames):
             mem.append(p)
         else:
             future = pages[i + 1:]
-            # victim = page whose next use is farthest (or never used again)
             victim = max(mem, key=lambda q: future.index(q) if q in future else len(future) + 1)
             mem[mem.index(victim)] = p
         steps.append((p, list(mem), "Fault"))

@@ -390,7 +390,7 @@ para("APPENDIX A: SOURCE CODE", size=14, bold=True, align="center", after=4)
 para("Python 3.13 · NumPy · SciPy · scikit-image · PyWavelets · Pillow · pandas · matplotlib (OpenCV and FFmpeg for the video test). "
      "Repository: github.com/krishangvikramsingh/claude-code, branch claude/elegant-tesla-c3k9fk, folder final_submission/source_code/src. "
      "The listing contains the algorithm, attacks, metrics, dataset builder, batch experiment, analysis and benchmark scripts; "
-     "the data manifest (dataset_manifest.py), the tests and the report/presentation generators are in the repository.", size=9, align="justify", after=6)
+     "the data manifest (dataset_manifest.py) and the tests are in the repository.", size=9, align="justify", after=6)
 
 CODE_FILES = [("watermark_core.py", "Hybrid DWT–DCT–SVD embedding and extraction (algorithm core)"), ("metrics.py", "PSNR, SSIM, MSE, NC, ZNCC, BER"),
               ("attacks.py", "The 14 attacks plus the unattacked reference, seeded"), ("logo.py", "Procedural 64×64 binary watermark logo"),

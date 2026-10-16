@@ -46,14 +46,6 @@ PARTS = [
         ("src", "analysis_tech.py", "Figures for the technology comparison"),
         ("src", "benchmark_tech.py", "Library and scheme benchmarks"),
         ("src", "make_diagram.py", "Pipeline diagrams"),
-        ("src", "make_paper_figures.py", "Column width figures for the paper"),
-    ]),
-    ("Document generators", "Scripts that assemble the report, presentation and paper from the results.", [
-        ("src", "docx_helpers.py", "Helper functions for Word documents"),
-        ("src", "build_report.py", "Builds the project report"),
-        ("src", "build_deck.py", "Builds the presentation"),
-        ("src", "build_paper.py", "Builds the research paper"),
-        ("src", "validate_submission.py", "Checks the finished package"),
     ]),
     ("Tests", "Automated tests (pytest).", [
         ("tests", "conftest.py", "Test configuration"),
@@ -190,10 +182,9 @@ def build(pages):
 
     doc.add_page_break()
     doc.add_heading("How the project is organised", level=1)
-    text("The code is grouped into seven parts. The core algorithm is small and has no dependency on the other parts. "
+    text("The code is grouped into six parts. The core algorithm is small and has no dependency on the other parts. "
          "The dataset builder prepares the images, the experiment scripts run the algorithm on them and record results, "
-         "and the analysis scripts turn the recorded results into tables and figures. The document generators assemble the report, "
-         "presentation and paper from those results. Tests check the algorithm, the loaders and the completeness of the results.", 11, after=8)
+         "and the analysis scripts turn the recorded results into tables and figures. Tests check the algorithm, the loaders and the completeness of the results.", 11, after=8)
     tbl = doc.add_table(rows=1, cols=3)
     tbl.style = "Table Grid"
     for i, h in enumerate(("File", "Part", "Purpose")):

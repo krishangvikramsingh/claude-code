@@ -8,6 +8,7 @@ a 100-image evaluation, a technology comparison, a literature review, a rewritte
 |---|---|
 | **Report** (editable / PDF) | `report/Final_Project_Report.docx`, `report/Final_Project_Report.pdf` |
 | **Presentation** (editable / PDF / speaker notes) | `presentation/Final_Presentation.pptx`, `presentation/Final_Presentation.pdf`, `presentation/SPEAKER_NOTES.md` |
+| **Research paper + code in one Word file (teacher's submission, named by roll number)** | `paper/B106.docx` (PDF copy: `paper/B106.pdf`) |
 | What was found in the original code | `documentation/PROJECT_AUDIT.md` |
 | Every transformation, with maths | `documentation/TRANSFORMATIONS_REFERENCE.md` |
 | How the experiments were run | `documentation/EXPERIMENT_METHODOLOGY.md` |

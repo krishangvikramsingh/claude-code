@@ -1,4 +1,4 @@
-[PASS] all required deliverables present — 29 files
+[PASS] all required deliverables present - 29 files
 [PASS] metadata has 100 rows and unique IDs
 [PASS] 100 images are 512x512 uint8 and pixel-unique
 [PASS] synthetic images labelled
@@ -9,17 +9,17 @@
 [PASS] 4000 sweep rows ok, 1600 control rows
 [PASS] 100 watermarked PNGs exist and were validated
 [PASS] metrics in valid ranges
-[PASS] headline pass rate recomputed from raw CSV matches summary — 0.8513
-[PASS] mean PSNR recomputed matches summary — 35.987 dB
-[PASS] false-positive control mean NC recomputed — 0.9754
-[PASS] report opens (python-docx) with figures and tables — 18 images, 18 tables
+[PASS] headline pass rate recomputed from raw CSV matches summary - 0.8513
+[PASS] mean PSNR recomputed matches summary - 35.987 dB
+[PASS] false-positive control mean NC recomputed - 0.9754
+[PASS] report opens (python-docx) with figures and tables - 18 images, 18 tables
 [PASS] deck opens (python-pptx) with 24 slides, all with notes
 [PASS] no placeholder text in report/deck
-[PASS] report and deck agree on headline numbers — 85.1 % pass rate; wrong-logo NC 0.975
+[PASS] report and deck agree on headline numbers - 85.1 % pass rate; wrong-logo NC 0.975
 [PASS] report mentions Canva not edited / no template
-[PASS] report PDF has pages and TOC page numbers resolved — 37 pages
+[PASS] report PDF has pages and TOC page numbers resolved - 37 pages
 [PASS] no unresolved (0) page numbers in contents/lists
-[PASS] every citation number in the report exists in the reference list — 32 cited / 32 listed
+[PASS] every citation number in the report exists in the reference list - 32 cited / 32 listed
 [PASS] original source files preserved separately (and modified versions differ)
 
 23/23 checks passed

@@ -17,6 +17,8 @@ import re
 import subprocess
 
 import pandas as pd
+
+from code_clean import strip_python
 from docx import Document
 from docx.enum.section import WD_SECTION
 from docx.enum.table import WD_TABLE_ALIGNMENT
@@ -384,7 +386,7 @@ s2 = doc.add_section(WD_SECTION.NEW_PAGE)
 set_cols(s2, 1)
 page_setup(s2)
 s2.left_margin = s2.right_margin = Cm(1.6)
-para("APPENDIX A — SOURCE CODE", size=14, bold=True, align="center", after=4)
+para("APPENDIX A: SOURCE CODE", size=14, bold=True, align="center", after=4)
 para("Python 3.13 · NumPy · SciPy · scikit-image · PyWavelets · Pillow · pandas · matplotlib (OpenCV and FFmpeg for the video test). "
      "Repository: github.com/krishangvikramsingh/claude-code, branch claude/elegant-tesla-c3k9fk, folder final_submission/source_code/src. "
      "The listing contains the algorithm, attacks, metrics, dataset builder, batch experiment, analysis and benchmark scripts; "
@@ -400,9 +402,9 @@ mono = "Consolas"
 total_lines = 0
 for i, (fn, desc) in enumerate(CODE_FILES, 1):
     path = os.path.join(HERE, fn)
-    src = open(path, encoding="utf-8").read().rstrip("\n").split("\n")
+    src = strip_python(open(path, encoding="utf-8").read()).rstrip("\n").split("\n")
     total_lines += len(src)
-    h = para(f"A.{i}  {fn}  —  {desc}  ({len(src)} lines)", size=10.5, bold=True, align="left", before=10, after=3, keep=True)
+    h = para(f"A.{i}  {fn}: {desc.replace(chr(8211), chr(45))} ({len(src)} lines)", size=10.5, bold=True, align="left", before=10, after=3, keep=True)
     for line in src:
         p = doc.add_paragraph()
         p.paragraph_format.space_after = Pt(0); p.paragraph_format.line_spacing = 1.0

@@ -3,7 +3,7 @@ import secrets
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-from errors import (AccountLocked, DuplicateAccount, DuplicateReport, InvalidCollegeEmail,
+from errors import (AccountLocked, AccountSuspended, DuplicateAccount, DuplicateReport, InvalidCollegeEmail,
                     InvalidCredentials, InvalidReview, NotAuthorised, NotFound, NotVerified, PlatformError)
 from seed import build_sample_platform
 
@@ -12,6 +12,7 @@ STATUS = {
     InvalidCollegeEmail: 422,
     InvalidCredentials: 401,
     AccountLocked: 423,
+    AccountSuspended: 403,
     NotVerified: 403,
     NotAuthorised: 403,
     InvalidReview: 422,

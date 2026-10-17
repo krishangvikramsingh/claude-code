@@ -3,13 +3,17 @@ import itertools
 import math
 from datetime import datetime, timedelta
 
-from errors import (AccountLocked, DuplicateAccount, DuplicateReport, InvalidCollegeEmail,
+from errors import (AccountLocked, AccountSuspended, DuplicateAccount, DuplicateReport, InvalidCollegeEmail,
                     InvalidCredentials, InvalidReview, NotAuthorised, NotFound, NotVerified)
 from models import (Category, City, College, Recommendation, Review, ReviewStatus, User)
 
 MAX_FAILED_ATTEMPTS = 5
 LOCK_MINUTES = 15
 DEFAULT_RADIUS_KM = 5
+
+
+def normalise_email(email):
+    return email.strip().lower()
 
 
 def hash_password(password):
@@ -59,11 +63,13 @@ class Platform:
         return rec
 
     def create_admin(self, name, email, password):
-        user = User(self._next("AD"), name, email, hash_password(password), role="admin", verified=True)
+        user = User(self._next("AD"), name, normalise_email(email), hash_password(password), role="admin",
+                    verified=True)
         self.users[user.user_id] = user
         return user
 
     def find_user(self, email):
+        email = normalise_email(email)
         for user in self.users.values():
             if user.email == email:
                 return user
@@ -75,8 +81,9 @@ class Platform:
         college = self.colleges.get(college_id)
         if college is None:
             raise NotFound("college")
+        email = normalise_email(email)
         domain = email.split("@")[-1]
-        if not domain.endswith(college.domain):
+        if domain != college.domain and not domain.endswith("." + college.domain):
             raise InvalidCollegeEmail(email)
         user = User(self._next("ST"), name, email, hash_password(password), college_id=college_id, verified=True)
         self.users[user.user_id] = user
@@ -94,6 +101,8 @@ class Platform:
             if user.failed_attempts >= MAX_FAILED_ATTEMPTS:
                 user.locked_until = now + timedelta(minutes=LOCK_MINUTES)
             raise InvalidCredentials(email)
+        if user.suspended:
+            raise AccountSuspended(email)
         user.failed_attempts = 0
         user.locked_until = None
         return user
@@ -142,7 +151,7 @@ class Platform:
             raise NotVerified(user_id)
         if rec_id not in self.recommendations:
             raise NotFound("recommendation")
-        if rating < 1 or rating > 5:
+        if isinstance(rating, bool) or not isinstance(rating, int) or rating < 1 or rating > 5:
             raise InvalidReview("rating must be between 1 and 5")
         review = Review(self._next("RV"), user_id, rec_id, rating, comment)
         self.reviews[review.review_id] = review

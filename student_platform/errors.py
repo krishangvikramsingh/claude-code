@@ -18,6 +18,10 @@ class AccountLocked(PlatformError):
     pass
 
 
+class AccountSuspended(PlatformError):
+    pass
+
+
 class NotVerified(PlatformError):
     pass
 

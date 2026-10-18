@@ -3,31 +3,31 @@
   "axe": {
     "search": {
       "violations": [],
-      "passes": 21
+      "passes": 23
     },
     "account": {
       "violations": [],
-      "passes": 22
+      "passes": 24
     },
     "search_results": {
       "violations": [],
-      "passes": 21
+      "passes": 23
     },
     "detail": {
       "violations": [],
-      "passes": 22
+      "passes": 24
     },
     "admin": {
       "violations": [],
-      "passes": 23
+      "passes": 25
     },
     "events": {
       "violations": [],
-      "passes": 21
+      "passes": 23
     },
     "notifications": {
       "violations": [],
-      "passes": 20
+      "passes": 22
     }
   },
   "mobile_overflow": false

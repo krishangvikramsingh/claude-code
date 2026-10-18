@@ -54,9 +54,13 @@ def main():
             return page.get_by_role("navigation").get_by_role("button", name=name, exact=True)
 
         def shot(name):
+            page.evaluate("window.scrollTo(0, 0)")
+            page.mouse.move(2, 2)
+            page.wait_for_timeout(900)
             page.screenshot(path=str(OUT / f"{name}.png"), full_page=True)
 
         def scan(name):
+            page.wait_for_timeout(900)
             if AXE and Path(AXE).exists():
                 page.add_script_tag(path=AXE)
                 result = page.evaluate("axe.run(document, {runOnly: ['wcag2a','wcag2aa','wcag21a','wcag21aa']})")

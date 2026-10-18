@@ -149,8 +149,8 @@ table(["Project team", "Roll number"], [
 table(["Details", ""], [
     ["Batch (Krishang Vikram Singh)", "C1"],
     ["Programme", "B.Tech Computer Engineering"], ["Subject", "Software Engineering"],
-    ["Faculty / guide", "[to be filled in]"],
-    ["Date of submission", "[to be filled in]"]], [2.0, 3.6])
+    ["Faculty / guide", "Dr. Prashasti Kanikar"],
+    ["Date of submission", "18/10/2026"]], [2.0, 3.6])
 para("")
 para("Source code, tests, diagrams and evidence are in the project folder student-recommendation-platform (see README.md).",
      italic=True, size=9, align=WD_ALIGN_PARAGRAPH.CENTER)

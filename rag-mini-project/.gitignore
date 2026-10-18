@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+# generated runtime artifacts (rebuild with scripts/build_index.py)
+artifacts/index/
+artifacts/experiments/idx_*/
+artifacts/streamlit.log
+artifacts/streamlit.pid

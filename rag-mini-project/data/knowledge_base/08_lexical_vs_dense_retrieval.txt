@@ -1,0 +1,18 @@
+LEXICAL AND DENSE RETRIEVAL
+===========================
+
+Lexical retrieval
+-----------------
+Lexical retrieval scores documents by the words they share with the query. BM25, summarised by Robertson and Zaragoza in 2009, is the standard function; common default values are k1 of about 1.2 and b of about 0.75. Lexical retrieval is excellent for exact names, codes and rare terms, but it fails when the query uses different words than the document, which is called vocabulary mismatch.
+
+Dense retrieval
+---------------
+Dense retrieval compares embedding vectors and can match a paraphrase that shares no words with the passage. It can, however, rank a passage that is only topically related above a passage with the exact answer, and it is weaker on rare identifiers.
+
+Hybrid retrieval
+----------------
+Hybrid retrieval combines both signals. Reciprocal rank fusion, proposed by Cormack and colleagues in 2009, adds 1 divided by (k plus rank) for every ranked list a document appears in, with k commonly set to 60. Because it uses ranks instead of raw scores, it avoids having to calibrate lexical and dense scores against each other.
+
+Practical advice
+----------------
+Start with a single retriever, build a labelled question set, measure Precision@k, Recall@k and MRR, and only add complexity such as hybrid search or re-ranking when the measurements show a clear weakness.

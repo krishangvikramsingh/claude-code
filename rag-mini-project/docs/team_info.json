@@ -1,0 +1,13 @@
+{
+  "_comment": "Edit this file, then run: python scripts/build_docs.py && python scripts/package_submission.py",
+  "project_title": "Retrieval-Augmented Generation Study-Guide Assistant",
+  "course": "Coursera Project Submission",
+  "institution": "[Institution name]",
+  "students": [
+    {"name": "[Student Name 1]", "roll_no": "Rollno1"},
+    {"name": "[Student Name 2]", "roll_no": "Rollno2"},
+    {"name": "[Student Name 3]", "roll_no": "Rollno3"}
+  ],
+  "supervisor": "[Supervisor / Instructor name]",
+  "submission_date": "[Date]"
+}

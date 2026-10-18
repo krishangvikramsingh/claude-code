@@ -1,0 +1,11 @@
+flowchart TD
+  A[1 Discover and fingerprint files<br/>.pdf .docx .md .txt, SHA-256] --> B[2 Extract text<br/>pypdf per page / python-docx headings / md-txt headings]
+  B -->|empty, corrupted, unsupported, encrypted| X[FileReport status=failed<br/>run continues]
+  B --> C[3 Clean and normalise<br/>header-footer removal, NFKC, de-hyphenate, whitespace]
+  C --> D[4 Chunk<br/>sentence-aware, size 500, overlap 100, per page/section]
+  D --> E[5 Validate chunks]
+  E -->|violation| X
+  E --> F[6 De-duplicate by text hash]
+  F --> G[7 Embed + L2-normalise]
+  G --> H[8 FAISS IndexFlatIP]
+  H --> I[9 Persist index, chunks.jsonl, manifest, embedder, ingest_report]

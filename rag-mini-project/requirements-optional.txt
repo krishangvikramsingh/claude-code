@@ -1,0 +1,3 @@
+# Optional back-ends (NOT executed during development: no model download / API access was available)
+sentence-transformers>=3,<6   # RAG_EMBEDDER=sentence-transformers (downloads a model from HuggingFace on first use)
+anthropic>=0.40               # RAG_LLM_PROVIDER=anthropic (needs ANTHROPIC_API_KEY)

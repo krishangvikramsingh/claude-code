@@ -1,0 +1,83 @@
+[
+  {
+    "min_coverage": 0.15,
+    "passed": "28/34",
+    "wrongly_abstained": 0,
+    "unanswerable_not_refused": 3,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "E03",
+      "E04",
+      "E05",
+      "F02"
+    ]
+  },
+  {
+    "min_coverage": 0.2,
+    "passed": "29/34",
+    "wrongly_abstained": 0,
+    "unanswerable_not_refused": 2,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "E03",
+      "E04",
+      "F02"
+    ]
+  },
+  {
+    "min_coverage": 0.25,
+    "passed": "28/34",
+    "wrongly_abstained": 1,
+    "unanswerable_not_refused": 2,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "C04",
+      "E03",
+      "E04",
+      "F02"
+    ]
+  },
+  {
+    "min_coverage": 0.3,
+    "passed": "28/34",
+    "wrongly_abstained": 2,
+    "unanswerable_not_refused": 1,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "C04",
+      "E03",
+      "F02",
+      "G02"
+    ]
+  },
+  {
+    "min_coverage": 0.34,
+    "passed": "29/34",
+    "wrongly_abstained": 4,
+    "unanswerable_not_refused": 0,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "C04",
+      "G02",
+      "H03"
+    ]
+  },
+  {
+    "min_coverage": 0.4,
+    "passed": "29/34",
+    "wrongly_abstained": 4,
+    "unanswerable_not_refused": 0,
+    "failed_ids": [
+      "B03",
+      "C03",
+      "C04",
+      "G02",
+      "H03"
+    ]
+  }
+]

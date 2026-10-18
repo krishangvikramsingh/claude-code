@@ -1,0 +1,14 @@
+flowchart LR
+  subgraph OFFLINE[Offline indexing]
+    KB[data/knowledge_base<br/>PDF DOCX MD TXT] --> DP[Document processing<br/>load - clean - chunk - validate - dedupe]
+    DP --> EMB[Embedding<br/>LSA / TF-IDF / sentence-transformers<br/>L2-normalised]
+    EMB --> IDX[FAISS IndexFlatIP]
+    IDX --> ART[(artifacts/index<br/>index.faiss chunks.jsonl manifest.json)]
+  end
+  subgraph ONLINE[Online question answering]
+    Q[User question] --> RET[Retriever<br/>embed query + top-k cosine]
+    RET --> PB[Prompt builder<br/>rules + delimited passages]
+    PB --> GEN[Generator<br/>extractive / Anthropic / Ollama]
+    GEN --> ANS[Answer + [S#] citations + sources]
+  end
+  ART -.loaded at query time.-> RET

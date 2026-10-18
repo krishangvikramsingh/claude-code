@@ -1,0 +1,32 @@
+{
+  "project_report": {
+    "pages": 8,
+    "limit": 15,
+    "within_limit": true
+  },
+  "dataset_knowledge_base": {
+    "pages": 1,
+    "limit": 2,
+    "within_limit": true
+  },
+  "document_processing_module": {
+    "pages": 3,
+    "limit": null,
+    "within_limit": true
+  },
+  "embedding_vector_database": {
+    "pages": 2,
+    "limit": 2,
+    "within_limit": true
+  },
+  "llm_prompt_engineering": {
+    "pages": 2,
+    "limit": 2,
+    "within_limit": true
+  },
+  "testing_evaluation": {
+    "pages": 3,
+    "limit": 3,
+    "within_limit": true
+  }
+}

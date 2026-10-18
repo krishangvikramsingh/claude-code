@@ -144,10 +144,12 @@ para("B.Tech Computer Engineering — Software Engineering", size=12, align=WD_A
 para("Software Engineering Mini Project Report", bold=True, size=14, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
 t = para("Student Recommendation Platform for New City Students", bold=True, size=24, align=WD_ALIGN_PARAGRAPH.CENTER, after=30)
 t.runs[0].font.color.rgb = NAVY
-table(["Project author", ""], [
-    ["Name", "Krishang Vikram Singh"], ["Roll number", "B106"], ["Batch", "C1"],
+table(["Project team", "Roll number"], [
+    ["Krishang Vikram Singh", "B106"], ["Samarendra Padaki", "B067"], ["Riya Saitwal", "B081"]], [3.2, 2.4])
+table(["Details", ""], [
+    ["Batch (Krishang Vikram Singh)", "C1"],
     ["Programme", "B.Tech Computer Engineering"], ["Subject", "Software Engineering"],
-    ["Other group members", "[to be filled in if applicable]"], ["Faculty / guide", "[to be filled in]"],
+    ["Faculty / guide", "[to be filled in]"],
     ["Date of submission", "[to be filled in]"]], [2.0, 3.6])
 para("")
 para("Source code, tests, diagrams and evidence are in the project folder student-recommendation-platform (see README.md).",

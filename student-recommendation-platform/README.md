@@ -1,6 +1,6 @@
 # Student Recommendation Platform for New City Students
 
-Software Engineering mini project — Krishang Vikram Singh, Roll No. B106, Batch C1, B.Tech Computer Engineering,
+Software Engineering mini project — team: Krishang Vikram Singh (Roll No. B106, Batch C1), Samarendra Padaki (Roll No. B067), Riya Saitwal (Roll No. B081); B.Tech Computer Engineering,
 NMIMS Mukesh Patel School of Technology Management & Engineering (Mumbai).
 
 A web application that helps students who have moved to a new city find PGs/hostels, restaurants, stationery shops, sports

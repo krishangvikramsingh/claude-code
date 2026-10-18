@@ -1,0 +1,34 @@
+{
+  "clicks_register_and_search": 3,
+  "axe": {
+    "search": {
+      "violations": [],
+      "passes": 21
+    },
+    "account": {
+      "violations": [],
+      "passes": 22
+    },
+    "search_results": {
+      "violations": [],
+      "passes": 21
+    },
+    "detail": {
+      "violations": [],
+      "passes": 22
+    },
+    "admin": {
+      "violations": [],
+      "passes": 23
+    },
+    "events": {
+      "violations": [],
+      "passes": 21
+    },
+    "notifications": {
+      "violations": [],
+      "passes": 20
+    }
+  },
+  "mobile_overflow": false
+}

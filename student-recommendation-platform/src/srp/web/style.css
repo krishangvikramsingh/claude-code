@@ -1,0 +1,38 @@
+:root { --ink: #1b2430; --muted: #4d5a6a; --brand: #1d4ed8; --brand-dark: #1e3a8a; --line: #c9d2de; --bg: #f4f6fa; --card: #ffffff; --ok: #166534; --bad: #b91c1c; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.45; }
+header { background: var(--brand-dark); color: #fff; padding: 14px 16px 0; }
+header h1 { margin: 0; font-size: 1.35rem; }
+.tagline { margin: 2px 0 10px; color: #dbe5ff; font-size: .9rem; }
+nav { display: flex; flex-wrap: wrap; gap: 4px; }
+nav button { background: transparent; color: #fff; border: 0; border-bottom: 3px solid transparent; padding: 10px 12px; font-size: .95rem; cursor: pointer; }
+nav button[aria-current="page"] { border-bottom-color: #fff; font-weight: 600; }
+nav button:hover { background: rgba(255, 255, 255, .12); }
+main { max-width: 960px; margin: 0 auto; padding: 16px; }
+footer { max-width: 960px; margin: 0 auto; padding: 8px 16px 24px; color: var(--muted); font-size: .85rem; }
+.skip { position: absolute; left: -999px; top: 0; background: #fff; padding: 8px; }
+.skip:focus { left: 8px; z-index: 5; }
+#banner { max-width: 960px; margin: 8px auto 0; padding: 0 16px; }
+.msg { padding: 10px 12px; border-radius: 6px; margin: 8px 0; border: 1px solid var(--line); background: #fff; }
+.msg.ok { border-color: var(--ok); color: var(--ok); }
+.msg.err { border-color: var(--bad); color: var(--bad); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px; margin: 10px 0; }
+.card h2, .card h3 { margin: 0 0 6px; }
+form.card { display: grid; gap: 10px; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+input[type="checkbox"] { width: auto; }
+label { display: grid; gap: 4px; font-weight: 600; font-size: .9rem; }
+input, select, textarea { width: 100%; min-width: 0; font: inherit; padding: 8px; border: 1px solid #8795a8; border-radius: 6px; background: #fff; color: var(--ink); }
+button.primary, button.secondary, button.danger { font: inherit; padding: 8px 14px; border-radius: 6px; cursor: pointer; border: 1px solid var(--brand); }
+button.primary { background: var(--brand); color: #fff; }
+button.secondary { background: #fff; color: var(--brand); }
+button.danger { background: #fff; color: var(--bad); border-color: var(--bad); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.meta { color: var(--muted); font-size: .9rem; margin: 2px 0; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #e0e7ff; color: var(--brand-dark); font-size: .8rem; margin-right: 6px; }
+.unread { border-left: 5px solid var(--brand); }
+fieldset { border: 1px solid var(--line); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); font-size: .9rem; vertical-align: top; }
+@media (max-width: 600px) { main { padding: 10px; } nav button { padding: 10px 8px; font-size: .9rem; } }

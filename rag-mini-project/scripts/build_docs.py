@@ -73,8 +73,6 @@ def title_block(d, kind):
         p(d, f"{s['name']}  -  Roll No. {s['roll_no']}", size=11.5, align="center", after=2)
     p(d, f"Supervisor / Instructor: {TEAM['supervisor']}", size=11, align="center", after=2)
     p(d, f"Date: {TEAM['submission_date']}", size=11, align="center", after=20)
-    p(d, "The submission date is a placeholder to be completed by the team (docs/team_info.json).",
-      italic=True, size=9, align="center")
 
 
 def exp_rows(emb):

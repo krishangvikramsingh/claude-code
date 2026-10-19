@@ -6,7 +6,7 @@ Guideline note: `coursera project.docx` (uploaded later) was read and checked: i
 ## A. The seven components
 | # | Component (limit) | Deliverable | Verification evidence | Status |
 |---|---|---|---|---|
-| 1 | Project Report (≤ 15 pp) | `docs/project_report.docx` (+ `docs/pdf/`) | LibreOffice PDF export: **8 pages** (`artifacts/page_counts.json`); contains title page, abstract, intro/problem/objectives/scope, architecture diagram (Fig. 1), stack, methodology, dataset, processing + diagram (Fig. 2), embedding/vector DB, LLM/prompt, UI + 2 real screenshots (Figs. 3-4), testing + results, discussion, limitations, future work, conclusion, references; page numbers in footer | DONE (title page has team names and roll numbers; the date is a PLACEHOLDER) |
+| 1 | Project Report (≤ 15 pp) | `docs/project_report.docx` (+ `docs/pdf/`) | LibreOffice PDF export: **8 pages** (`artifacts/page_counts.json`); contains title page, abstract, intro/problem/objectives/scope, architecture diagram (Fig. 1), stack, methodology, dataset, processing + diagram (Fig. 2), embedding/vector DB, LLM/prompt, UI + 2 real screenshots (Figs. 3-4), testing + results, discussion, limitations, future work, conclusion, references; page numbers in footer | DONE (title page has team names and roll numbers) |
 | 2 | Dataset / KB (≤ 2 pp) | `docs/dataset_knowledge_base.docx` | **1 page**; actual counts: 9 files processed, 45 chunks, 14,198 chars; synthetic status stated; no URLs/dates because nothing was downloaded | DONE |
 | 3 | Document Processing Module (one detailed diagram) | `docs/document_processing_module.docx`, `diagrams/document_processing_pipeline.png` + `.mmd` | 3 pages; exactly **1 image** in the DOCX (checked with python-docx); diagram matches `rag/ingestion.py` stages; also embedded in the report | DONE |
 | 4 | Embedding & Vector DB (≤ 2 pp) | `docs/embedding_vector_database.docx` | **2 pages**; dimension 44 read from `artifacts/index/manifest.json`; experiment table from `artifacts/experiments/results.json` | DONE (neural model not executed: see §C) |
@@ -46,4 +46,4 @@ Guideline note: `coursera project.docx` (uploaded later) was read and checked: i
 | No venv, caches, generated index, model binaries | packager exclusions (`.venv`, `__pycache__`, `artifacts/index`, `.pytest_cache`) | DONE |
 
 ## E. Fields that still need the team's input
-Only the submission date remains a placeholder in `docs/team_info.json`. After editing, run `python scripts/build_docs.py && python scripts/check_pages.py && python scripts/package_submission.py`.
+None. Team names, roll numbers, institution, supervisor and date are filled in `docs/team_info.json`.

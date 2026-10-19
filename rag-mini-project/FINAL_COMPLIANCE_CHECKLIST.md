@@ -1,7 +1,7 @@
 # Final compliance checklist
 
 Status legend: **DONE** = verified by inspecting the file or running the command shown; **PARTIAL** = delivered with a stated limitation; **PLACEHOLDER** = needs the team's input.
-Guideline note: `coursera project.docx` could not be found (workspace / Google Drive); requirements below come from the task prompt's seven components.
+Guideline note: `coursera project.docx` (uploaded later) was read and checked: it lists exactly these seven components, the page limits used below, and the ZIP label `Coursera_Rollno1_Rollno2_Rollno3` (here `Coursera_B099_B101_B106`). Its expected-contents column is covered by the deliverables.
 
 ## A. The seven components
 | # | Component (limit) | Deliverable | Verification evidence | Status |
@@ -29,7 +29,6 @@ Guideline note: `coursera project.docx` could not be found (workspace / Google D
 | Chunk-size / top-k comparison with recorded outputs | `artifacts/experiments/results.{json,md}` (18 configurations); no superiority claimed | DONE |
 
 ## C. Things that could NOT be done or verified (be transparent)
-* `coursera project.docx` was not available → requirements taken from the prompt.
 * sentence-transformers (all-MiniLM-L6-v2) embeddings: HuggingFace unreachable → implemented, **not executed**; the 384-dimension figure is the model's documented size, not verified here.
 * Anthropic / Ollama generation: no API key or server → implemented, **not executed**; no LLM correctness/citation/injection results exist.
 * No public corpus could be downloaded → knowledge base is **synthetic**, written by the AI assistant; the team should review it.

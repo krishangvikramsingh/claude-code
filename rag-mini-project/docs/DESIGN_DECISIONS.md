@@ -1,6 +1,6 @@
 # Design decisions (Phase 1 record)
 
-* **Guideline source.** `coursera project.docx` was not present in the workspace or in the connected Google Drive. Requirements were taken from the seven components listed in the task prompt (page limits, contents). If the real document differs, re-check `FINAL_COMPLIANCE_CHECKLIST.md`.
+* **Guideline source.** `coursera project.docx` was initially unavailable, so requirements were first taken from the task prompt; the document was uploaded afterwards and verified to list the same seven components and limits.
 * **Topic.** "RAG Study-Guide Assistant": question answering over a small synthetic corpus about RAG itself. Chosen because facts and relevance labels can be stated objectively, no private/licensed data is needed, and it allows unanswerable near-topic questions and a poisoned document.
 * **Corpus.** No external documents were reachable (only PyPI was reachable from the sandbox), so original sample documents were written for the project and are labelled synthetic. No source URLs or access dates exist because nothing was downloaded.
 * **Embeddings.** HuggingFace was unreachable → default is a locally fitted TF-IDF + SVD (LSA) embedder. sentence-transformers is implemented behind the same interface but was not executed. No result is attributed to it.

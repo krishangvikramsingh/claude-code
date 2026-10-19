@@ -4,9 +4,18 @@
   "course": "Coursera Project Submission",
   "institution": "[Institution name]",
   "students": [
-    {"name": "[Student Name 1]", "roll_no": "Rollno1"},
-    {"name": "[Student Name 2]", "roll_no": "Rollno2"},
-    {"name": "[Student Name 3]", "roll_no": "Rollno3"}
+    {
+      "name": "Aditri Shresth",
+      "roll_no": "B099"
+    },
+    {
+      "name": "Aditya Singh",
+      "roll_no": "B101"
+    },
+    {
+      "name": "Krishang Vikram Singh",
+      "roll_no": "B106"
+    }
   ],
   "supervisor": "[Supervisor / Instructor name]",
   "submission_date": "[Date]"

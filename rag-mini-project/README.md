@@ -74,7 +74,7 @@ python -m pytest -q -rA --junitxml=artifacts/tests/junit.xml > artifacts/tests/p
 python scripts/make_diagrams.py
 # edit docs/team_info.json (names, roll numbers), then:
 python scripts/build_docs.py && python scripts/check_pages.py
-python scripts/package_submission.py   # -> Coursera_<roll1>_<roll2>_<roll3>.zip
+python scripts/package_submission.py   # -> Coursera_B099_B101_B106.zip
 ```
 
 ## Troubleshooting

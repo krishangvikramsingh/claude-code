@@ -6,7 +6,7 @@ Guideline note: `coursera project.docx` could not be found (workspace / Google D
 ## A. The seven components
 | # | Component (limit) | Deliverable | Verification evidence | Status |
 |---|---|---|---|---|
-| 1 | Project Report (≤ 15 pp) | `docs/project_report.docx` (+ `docs/pdf/`) | LibreOffice PDF export: **8 pages** (`artifacts/page_counts.json`); contains title page, abstract, intro/problem/objectives/scope, architecture diagram (Fig. 1), stack, methodology, dataset, processing + diagram (Fig. 2), embedding/vector DB, LLM/prompt, UI + 2 real screenshots (Figs. 3-4), testing + results, discussion, limitations, future work, conclusion, references; page numbers in footer | DONE (title-page names/roll numbers are PLACEHOLDERS) |
+| 1 | Project Report (≤ 15 pp) | `docs/project_report.docx` (+ `docs/pdf/`) | LibreOffice PDF export: **8 pages** (`artifacts/page_counts.json`); contains title page, abstract, intro/problem/objectives/scope, architecture diagram (Fig. 1), stack, methodology, dataset, processing + diagram (Fig. 2), embedding/vector DB, LLM/prompt, UI + 2 real screenshots (Figs. 3-4), testing + results, discussion, limitations, future work, conclusion, references; page numbers in footer | DONE (title page has team names and roll numbers; institution, supervisor and date are PLACEHOLDERS) |
 | 2 | Dataset / KB (≤ 2 pp) | `docs/dataset_knowledge_base.docx` | **1 page**; actual counts: 9 files processed, 45 chunks, 14,198 chars; synthetic status stated; no URLs/dates because nothing was downloaded | DONE |
 | 3 | Document Processing Module (one detailed diagram) | `docs/document_processing_module.docx`, `diagrams/document_processing_pipeline.png` + `.mmd` | 3 pages; exactly **1 image** in the DOCX (checked with python-docx); diagram matches `rag/ingestion.py` stages; also embedded in the report | DONE |
 | 4 | Embedding & Vector DB (≤ 2 pp) | `docs/embedding_vector_database.docx` | **2 pages**; dimension 44 read from `artifacts/index/manifest.json`; experiment table from `artifacts/experiments/results.json` | DONE (neural model not executed: see §C) |
@@ -41,10 +41,10 @@ Guideline note: `coursera project.docx` could not be found (workspace / Google D
 ## D. Packaging and hygiene
 | Check | Evidence | Status |
 |---|---|---|
-| ZIP named `Coursera_Rollno1_Rollno2_Rollno3.zip` | `scripts/package_submission.py` (reads `docs/team_info.json`) | PLACEHOLDER roll numbers |
+| ZIP named `Coursera_B099_B101_B106.zip` | `scripts/package_submission.py` (reads `docs/team_info.json`) | DONE |
 | ZIP contains all seven components in numbered folders | listing printed by the packager; archive tested with `zipfile.testzip()` | DONE |
 | No secrets | regex scan in the packager (`sk-ant-…`, AWS, GitHub tokens) + `.env` excluded; `.env.example` has placeholders only | DONE |
 | No venv, caches, generated index, model binaries | packager exclusions (`.venv`, `__pycache__`, `artifacts/index`, `.pytest_cache`) | DONE |
 
 ## E. Fields that still need the team's input
-Roll numbers (currently `Rollno1`, `Rollno2`, `Rollno3`), student names, institution, supervisor, date → edit `docs/team_info.json`, then run `python scripts/build_docs.py && python scripts/check_pages.py && python scripts/package_submission.py`.
+Institution, supervisor and date remain placeholders in `docs/team_info.json`. After editing, run `python scripts/build_docs.py && python scripts/check_pages.py && python scripts/package_submission.py`.

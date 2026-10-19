@@ -2,7 +2,7 @@
   "_comment": "Edit this file, then run: python scripts/build_docs.py && python scripts/package_submission.py",
   "project_title": "Retrieval-Augmented Generation Study-Guide Assistant",
   "course": "Coursera Project Submission",
-  "institution": "[Institution name]",
+  "institution": "NMIMS - Mukesh Patel School of Technology Management and Engineering",
   "students": [
     {
       "name": "Aditri Shresth",
@@ -17,6 +17,6 @@
       "roll_no": "B106"
     }
   ],
-  "supervisor": "[Supervisor / Instructor name]",
+  "supervisor": "Dr. Prashasti Kanikar",
   "submission_date": "[Date]"
 }

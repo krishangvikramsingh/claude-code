@@ -33,11 +33,14 @@ export function buildRebalancePlan(rows: AllocationRow[], p: PortfolioResult, da
   const items: PlanItem[] = rows.filter((r) => r.inDenominator && r.targetPct != null).map((r) => {
     const gap = r.gapValue ?? 0;
     const band = r.bandPp ?? params.bandDefault;
-    const outside = r.driftPp != null && Math.abs(r.driftPp) > band;
+    // only a DEFINITE breach drives an action; a 'possible' one depends on unclassified holdings and is held until resolved
+    const outside = r.status === "breach";
+    const undetermined = r.status === "possible";
     const sellable = sum(p.lines.filter((l) => l.assetClass === r.assetClass && l.liquidityTier <= 3 && !l.isRemainder).map((l) => l.value));
     const reasons: string[] = [];
     let direction: PlanItem["direction"] = "hold", amount = 0;
-    if (!outside) reasons.push(`Within the ±${band} pp band — no action required.`);
+    if (undetermined) reasons.push(`Cannot be confirmed: ${r.minPct?.toFixed(1)}–${r.maxPct?.toFixed(1)}% depending on unclassified holdings, so no action is suggested until they are classified.`);
+    else if (!outside) reasons.push(`Within the ±${band} pp band — no action required.`);
     else if (gap < 0) {
       direction = "reduce";
       amount = Math.min(-gap, sellable);
@@ -67,8 +70,13 @@ export function buildRebalancePlan(rows: AllocationRow[], p: PortfolioResult, da
   const funding = proceeds + free;
   const newMoney = Math.max(0, wanted - funding);
   if (newMoney > 0) {
+    // only suggest buying what can actually be funded from sale proceeds and free cash; the rest needs fresh money
+    const f = wanted > 0 ? funding / wanted : 0;
+    for (const i of items.filter((x) => x.direction === "add")) {
+      i.suggestedAmount = Math.round(i.suggestedAmount * f);
+      i.reasons.push(f === 0 ? "No free cash or sale proceeds are available, so this can only be closed with fresh money." : `Funding available covers ${formatPct(f * 100, 0)} of the total shortfall; the rest needs fresh money.`);
+    }
     notes.push(`Reaching every target needs about ${formatCompact(newMoney)} of fresh money beyond sale proceeds and free cash.`);
-    if (funding < wanted && wanted > 0) for (const i of items.filter((x) => x.direction === "add")) i.reasons.push(`Funding available covers only ${formatPct((funding / wanted) * 100, 0)} of the total shortfall.`);
   }
   if (p.unresolved.value > 0) notes.push(`${formatCompact(p.unresolved.value)} of holdings are unclassified: gaps are computed on the classified portion and may change once they are resolved.`);
   if (params.reserveRequired > 0) notes.push(`Liquidity guard: ${formatCompact(params.reserveRequired)} (emergency fund + next-90-day obligations) is kept aside before any cash is deployed.`);

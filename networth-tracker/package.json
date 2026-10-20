@@ -15,7 +15,7 @@
     "seed": "node --import tsx src/server/seed-cli.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:e2e": "node --import tsx scripts/e2e.ts"
+    "test:e2e": "node scripts/e2e.mjs"
   },
   "dependencies": {
     "exceljs": "^4.4.0",

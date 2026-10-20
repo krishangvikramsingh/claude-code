@@ -4,6 +4,8 @@ import type { Evaluation } from "../shared/evaluate";
 import { ASSET_CLASS_LABEL, CASHFLOW_LABEL, INSTRUMENT_LABEL, LIABILITY_LABEL, LIQUIDITY_LABEL } from "../shared/taxonomy";
 import { formatCompact } from "../shared/money";
 import type { AlertRow } from "./alerts";
+import { summaryLines } from "../shared/summary";
+export { summaryLines };
 
 export type Cell = string | number | boolean | null;
 export interface Table { name: string; headers: string[]; rows: Cell[][] }
@@ -41,22 +43,6 @@ function csvCell(v: Cell): string {
 }
 export function toCSV(t: Table): string {
   return "﻿" + [t.headers, ...t.rows].map((r) => r.map(csvCell).join(",")).join("\r\n") + "\r\n";
-}
-
-export interface SummaryLine { label: string; value: string }
-export function summaryLines(data: ClientData, ev: Evaluation): SummaryLine[] {
-  const nw = ev.netWorth;
-  return [
-    { label: "Client", value: data.client.name }, { label: "Calculation date", value: ev.asOf }, { label: "Report generated", value: ev.computedAt },
-    { label: "Gross reported assets", value: formatCompact(nw.grossAssets) },
-    { label: "Confirmed outstanding liabilities", value: nw.liabilitiesStatus === "not_assessed" ? "Not yet assessed" : formatCompact(nw.liabilities) },
-    { label: "Calculated net worth", value: nw.netWorth == null ? `Awaiting liabilities (upper bound ${formatCompact(nw.upperBound)})` : `${formatCompact(nw.netWorth)}${nw.provisional ? " (provisional)" : ""}` },
-    { label: "Remaining contractual commitments", value: formatCompact(nw.commitmentsRemaining) },
-    { label: "Adjusted net worth after commitments", value: nw.adjustedNetWorth == null ? "Awaiting data" : formatCompact(nw.adjustedNetWorth) },
-    { label: "Financial-health score", value: ev.health.overall == null ? "Not assessable" : `${ev.health.overall.toFixed(0)}/100 — ${ev.health.provisional ? "provisional, " : ""}${(ev.health.coverage * 100).toFixed(0)}% weight coverage` },
-    { label: "Data completeness", value: `${ev.completeness.percent.toFixed(0)}%` },
-    { label: "Note", value: nw.note },
-  ];
 }
 
 export async function buildWorkbook(data: ClientData, ev: Evaluation, alerts: AlertRow[]): Promise<Buffer> {

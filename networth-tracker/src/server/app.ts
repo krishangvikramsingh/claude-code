@@ -174,7 +174,8 @@ export function createApp(db: DB) {
 
   app.post("/api/clients/:cid/snapshots", W, wrap((req, res) => {
     const date = req.body?.date; if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new HttpError(422, "Invalid date.");
-    const snap = recordSnapshot(db, param(req, "cid"), { date, note: req.body?.note ?? null }, req.user);
+    const b = req.body ?? {};
+    const snap = recordSnapshot(db, param(req, "cid"), { date, note: b.note ?? null, grossAssets: b.grossAssets, liabilities: b.liabilities, liabilitiesComplete: b.liabilitiesComplete }, req.user);
     refresh(db, param(req, "cid"));
     res.status(201).json({ item: snap });
   }));

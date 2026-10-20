@@ -237,3 +237,15 @@ describe("market data", () => {
     expect(r.data.stored).toBe(1); expect(r.data.rejected).toHaveLength(1);
   });
 });
+
+describe("durability", () => {
+  it("data and alert history survive closing and re-opening the database file", async () => {
+    await admin.req("POST", `${P}/goals`, { name: "Persist me", type: "wealth", targetAmount: lakh(10), targetDate: "2030-01-01", earmarkedAmount: 0, monthlyContribution: 0 });
+    db.exec("PRAGMA wal_checkpoint(TRUNCATE)");
+    const db2 = openDb(tmp);
+    const row = db2.prepare("SELECT name FROM goals WHERE name = 'Persist me'").get();
+    const n = (db2.prepare("SELECT COUNT(*) AS n FROM alerts").get() as { n: number }).n;
+    db2.close();
+    expect(row).toBeTruthy(); expect(n).toBeGreaterThan(0);
+  });
+});

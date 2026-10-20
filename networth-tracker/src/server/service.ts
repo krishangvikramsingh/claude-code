@@ -192,13 +192,22 @@ export function reconcileAggregate(db: DB, cid: string, id: string, actor: Actor
   return total;
 }
 
-export function recordSnapshot(db: DB, cid: string, opts: { date?: string; note?: string | null }, actor: Actor) {
+export function recordSnapshot(db: DB, cid: string, opts: { date?: string; note?: string | null; grossAssets?: number; liabilities?: number | null; liabilitiesComplete?: boolean }, actor: Actor) {
   const date = opts.date ?? asOfDate();
+  if (date > asOfDate()) throw new HttpError(422, "A snapshot cannot be dated in the future.");
   const d = requireClient(db, cid);
-  const ev = evaluateClient(d, date);
-  const nw = ev.netWorth;
-  const snap = { id: uid("snap"), clientId: cid, date, grossAssets: nw.grossAssets, liabilities: nw.liabilitiesStatus === "not_assessed" ? null : nw.liabilities, netWorth: nw.netWorth,
-    liabilitiesComplete: nw.liabilitiesStatus === "complete", source: "manual", note: opts.note ?? null };
+  let snap: any;
+  if (opts.grossAssets != null) {
+    // historical entry typed in by the user (e.g. last month's statement values) - never estimated
+    if (!Number.isInteger(opts.grossAssets) || opts.grossAssets < 0) throw new HttpError(422, "Gross assets must be a non-negative amount.");
+    if (opts.liabilities != null && (!Number.isInteger(opts.liabilities) || opts.liabilities < 0)) throw new HttpError(422, "Liabilities must be a non-negative amount.");
+    snap = { id: uid("snap"), clientId: cid, date, grossAssets: opts.grossAssets, liabilities: opts.liabilities ?? null, netWorth: opts.liabilities == null ? null : opts.grossAssets - opts.liabilities,
+      liabilitiesComplete: !!opts.liabilitiesComplete && opts.liabilities != null, source: "import", note: opts.note ?? "Entered manually" };
+  } else {
+    const nw = evaluateClient(d, date).netWorth;
+    snap = { id: uid("snap"), clientId: cid, date, grossAssets: nw.grossAssets, liabilities: nw.liabilitiesStatus === "not_assessed" ? null : nw.liabilities, netWorth: nw.netWorth,
+      liabilitiesComplete: nw.liabilitiesStatus === "complete", source: "manual", note: opts.note ?? null };
+  }
   tx(db, () => {
     db.prepare("DELETE FROM snapshots WHERE client_id = ? AND date = ?").run(cid, date);
     insertRow(db, "snapshots", snap);

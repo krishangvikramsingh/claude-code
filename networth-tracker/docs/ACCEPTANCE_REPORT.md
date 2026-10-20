@@ -5,7 +5,7 @@ Run on 2026-10-20 (Node 22.22, Chromium 1194). Commands: `npm run typecheck`, `n
 | Gate | Result |
 |---|---|
 | Type check (`tsc --noEmit`) | pass, 0 errors |
-| Unit + API tests (`vitest`) | **171 passed** across 5 files (engine 134 · Priya baseline 12 · API/integration 33 · market 6) |
+| Unit + API tests (`vitest`) | **171 passed** across 4 files (engine 122 · Priya baseline 12 · API/integration 32 · market 5) |
 | Production build | pass |
 | End-to-end browser walkthrough | **28 checks passed**, no console errors |
 | Launches from clean database | yes — migrations applied, fixtures seeded, demo users printed |

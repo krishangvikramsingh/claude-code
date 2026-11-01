@@ -1,0 +1,49 @@
+{
+  "name": "mk1300-v2-keyboard-software",
+  "productName": "MK1300 V2 Keyboard Software",
+  "version": "1.0.0",
+  "description": "MK1300 V2 Keyboard Software",
+  "main": "main/index.js",
+  "author": "© 2026 Ant Esports.",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "dist:mac": "electron-builder --mac",
+    "dist:mac:universal": "electron-builder --mac --universal"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "30.5.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.antesports.mk1300v2",
+    "productName": "MK1300 V2 Keyboard Software",
+    "copyright": "© 2026 Ant Esports.",
+    "files": ["main/**/*", "build/**/*", "package.json"],
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets-mac/icon.png",
+      "target": [{ "target": "dmg", "arch": ["arm64", "x64"] }],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "assets-mac/entitlements.mac.plist",
+      "entitlementsInherit": "assets-mac/entitlements.mac.plist",
+      "extendInfo": {
+        "NSInputMonitoringUsageDescription": "MK1300 V2 Keyboard Software needs to communicate with your keyboard to change its lighting, key mappings and firmware."
+      }
+    },
+    "dmg": {
+      "title": "${productName}",
+      "contents": [
+        { "x": 130, "y": 190 },
+        { "x": 410, "y": 190, "type": "link", "path": "/Applications" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* Injected by main/index.js after the UI loads. Additive only: the original
+   Next.js bundle is not modified. */
+
+/* macOS renders light-on-dark text heavier than Windows; antialiased matches
+   the weight the UI was designed with. */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* A desktop settings tool should not rubber-band or let the page be dragged. */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* Honour System Settings > Accessibility > Display > Reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus for tabbing through controls. */
+:focus-visible {
+  outline: 2px solid #ffb800;
+  outline-offset: 2px;
+}

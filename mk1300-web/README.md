@@ -17,7 +17,7 @@ Open it in **Chrome or Edge**, plug in the keyboard, click "Initialise device".
 `localhost` counts as a secure origin, so WebHID works without HTTPS locally.
 
 ```bash
-npm test             # build + 10 end-to-end tests (needs: npx playwright install chromium)
+npm test             # build + 13 end-to-end tests (needs: npx playwright install chromium)
 ```
 
 ## What this adds on top of the UI
@@ -30,6 +30,7 @@ npm test             # build + 10 end-to-end tests (needs: npx playwright instal
 | **Caching** | Hashed assets are immutable for a year. HTML, firmware, `update.json` and manifests are never cached, so a stale firmware file can't be served. |
 | **Offline / installable** | Service worker precaches the app shell; installable as a PWA. Firmware and manifests always bypass the cache. A new version waits until all tabs close, so a session is never swapped mid-use. |
 | **Accessibility** | Alt text for the keyboard image, viewport zoom un-blocked, and an accessible, keyboard-friendly support gate. |
+| **Glass theme** | Light, frosted-glass look in soft blues, oranges and whites (`src/theme-glass.css`): layered panels with blur and transparency, wide low-opacity shadows, rounded corners, dark-navy text for contrast, orange accent button. Fluid on phone-width screens. Honours reduced-transparency, high-contrast and reduced-motion settings. All colours are tokens at the top of the file. |
 | **Tests** | Headers, caching, CSP cleanliness on every page, the gate, firmware tamper cases, offline behaviour, PWA manifest and icons, and an axe accessibility scan. |
 
 ## Deploy
@@ -48,6 +49,15 @@ folder, set `MK_UI_SOURCE` to the exported UI's location.
 
 ## Known gaps (need the original Next.js source)
 
+- **Theme coverage.** The glass theme was checked on the landing screen, the docs
+  pages and the browser-support screen. The configuration screens (lighting, key
+  mapping, macros) only appear once a keyboard is connected, so they were
+  **not seen**. The theme restyles them through the app's shared colour classes
+  and Chakra components and should carry over, but expect some tuning there.
+  `src/theme-glass.css` is the one file to adjust.
+- **Layout is not truly mobile-first.** The landing page stacks cleanly on a phone,
+  but WebHID doesn't exist in mobile browsers, so the keyboard can't be configured
+  from one. The responsive work is for viewing and for narrow desktop windows.
 - Remaining accessibility findings (moderate): no `<main>` landmark, no `<h1>`
   (the title is a `<span>`), content outside landmarks. `src/a11y-patch.js`
   fixes what can be fixed safely from outside; delete it once the source is fixed.

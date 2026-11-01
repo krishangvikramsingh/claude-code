@@ -191,6 +191,55 @@ await test('every page loads: index, docs, 404 (no errors, CSP clean)', async ()
   }
 });
 
+await test('glass theme: light canvas, frosted panel, no dark background image', async () => {
+  const { context, page } = await open();
+  await page.goto(url + '/');
+  await page.getByText('Welcome to Keyboard HUB').waitFor();
+  const info = await page.evaluate(() => {
+    const lum = (c) => {
+      const [r, g, b] = c.match(/[\d.]+/g).slice(0, 3).map(Number).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const root = document.querySelector('.min-h-screen');
+    const card = document.querySelector('.flex-grow > div:not(.absolute)');
+    const title = document.querySelector('span.text-5xl');
+    const cs = getComputedStyle(root);
+    return {
+      bgImage: cs.backgroundImage,
+      bodyLum: lum(getComputedStyle(document.body).backgroundColor),
+      cardBlur: getComputedStyle(card).backdropFilter,
+      cardRadius: parseFloat(getComputedStyle(card).borderTopLeftRadius),
+      titleLum: lum(getComputedStyle(title).color),
+      scheme: getComputedStyle(document.documentElement).colorScheme,
+    };
+  });
+  assert.ok(!info.bgImage.includes('bg.png'), 'dark background image removed');
+  assert.ok(info.bodyLum > 0.85, 'canvas is light, got luminance ' + info.bodyLum);
+  assert.match(info.cardBlur, /blur/, 'panel is frosted');
+  assert.ok(info.cardRadius >= 24, 'rounded panel corners');
+  assert.ok(info.titleLum < 0.1, 'title is dark ink on light glass');
+  assert.equal(info.scheme, 'light');
+  await context.close();
+});
+
+for (const [label, vp] of [['phone 390px', { width: 390, height: 844 }], ['small laptop 1280px', { width: 1280, height: 720 }]]) {
+  await test(`layout fits ${label}: no element sticks out past the screen (app and docs)`, async () => {
+    for (const p of ['/', '/doc-en.html']) {
+      const { context, page } = await open({ viewport: vp });
+      await page.goto(url + p);
+      await page.waitForLoadState('networkidle');
+      const wide = await page.evaluate(() =>
+        [...document.querySelectorAll('body *')]
+          .filter((el) => !['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(el.tagName) && getComputedStyle(el).display !== 'none' && getComputedStyle(el).position !== 'fixed')
+          .filter((el) => el.getBoundingClientRect().right > innerWidth + 1 && !el.closest('[class*="menu-list"]') && !el.closest('.chakra-portal'))
+          .map((el) => `${el.tagName}.${(el.getAttribute('class') || '').slice(0, 30)} right=${Math.round(el.getBoundingClientRect().right)}`)
+      );
+      assert.deepEqual(wide.slice(0, 5), [], `${p} overflows at ${vp.width}px`);
+      await context.close();
+    }
+  });
+}
+
 await test('accessibility scan (axe) finds no critical or serious issues on the landing screen', async () => {
   // bypassCSP only so the test can inject the scanner; the shipped policy is unchanged.
   const { context, page } = await open({ bypassCSP: true });

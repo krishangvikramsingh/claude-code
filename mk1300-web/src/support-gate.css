@@ -1,11 +1,11 @@
 :root {
-  --mk-bg: #07090b;
-  --mk-surface: #12161a;
-  --mk-border: #262d33;
-  --mk-text: #f3f5f6;
-  --mk-muted: #aab3ba;
-  --mk-accent: #ffb800;
-  --mk-accent-text: #1a1300;
+  --mk-bg: #eaf3ff;
+  --mk-surface: rgba(255, 255, 255, 0.72);
+  --mk-border: rgba(255, 255, 255, 0.9);
+  --mk-text: #12263f;
+  --mk-muted: #3b506b;
+  --mk-accent: #ffa95c;
+  --mk-accent-text: #2a1500;
 }
 
 .mk-gate {
@@ -15,7 +15,7 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  background: var(--mk-bg);
+  background: radial-gradient(60% 50% at 12% 8%, rgba(149, 190, 247, 0.55), transparent 70%), radial-gradient(60% 50% at 90% 95%, rgba(255, 169, 92, 0.32), transparent 70%), linear-gradient(165deg, #eaf3ff, #f7fbff 50%, #fff3e6);
   color: var(--mk-text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,7 +27,10 @@
   padding: 32px;
   background: var(--mk-surface);
   border: 1px solid var(--mk-border);
-  border-radius: 16px;
+  border-radius: 28px;
+  -webkit-backdrop-filter: blur(22px) saturate(1.35);
+  backdrop-filter: blur(22px) saturate(1.35);
+  box-shadow: 0 24px 60px -12px rgba(36, 89, 201, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .mk-gate__title {
@@ -67,7 +70,7 @@
   align-items: center;
   min-height: 44px;
   padding: 0 18px;
-  border-radius: 10px;
+  border-radius: 999px;
   font: inherit;
   font-size: 15px;
   font-weight: 600;
@@ -76,14 +79,14 @@
 }
 
 .mk-gate__button {
-  background: var(--mk-accent);
+  background: linear-gradient(180deg, #ffc08a, var(--mk-accent));
   color: var(--mk-accent-text);
   border: 0;
 }
 
 .mk-gate__link {
   color: var(--mk-text);
-  border: 1px solid var(--mk-border);
+  border: 1px solid rgba(36, 89, 201, 0.35);
 }
 
 @media (hover: hover) {
@@ -93,7 +96,7 @@
 
 .mk-gate__button:focus-visible,
 .mk-gate__link:focus-visible {
-  outline: 2px solid var(--mk-accent);
+  outline: 3px solid #2459c9;
   outline-offset: 3px;
 }
 

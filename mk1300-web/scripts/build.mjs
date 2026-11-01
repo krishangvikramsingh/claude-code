@@ -26,7 +26,7 @@ const SITE = {
   name: 'MK1300 V2 Keyboard Software',
   description:
     'Configure lighting, key mappings and macros on your Ant Esports MK1300 V2 keyboard, and update its firmware, right from the browser.',
-  themeColor: '#000000',
+  themeColor: '#eaf3ff',
 };
 
 const sha256 = (buf) => createHash('sha256').update(buf).digest();
@@ -61,7 +61,7 @@ async function main() {
   await cp(SRC_UI, DIST, { recursive: true });
 
   // Static files added by this project.
-  for (const f of ['support-gate.js', 'support-gate.css', 'firmware-guard.js', 'pwa.js', 'a11y-patch.js', 'manifest.webmanifest', 'robots.txt']) {
+  for (const f of ['support-gate.js', 'support-gate.css', 'firmware-guard.js', 'pwa.js', 'a11y-patch.js', 'theme-glass.css', 'manifest.webmanifest', 'robots.txt']) {
     await cp(path.join(ROOT, 'src', f), path.join(DIST, f));
   }
   await cp(path.join(ROOT, 'src/icons'), path.join(DIST, 'icons'), { recursive: true });
@@ -100,6 +100,10 @@ async function main() {
 
     if (!/<html[^>]*\blang=/.test(html)) html = html.replace(/<html(\s|>)/, '<html lang="en"$1');
 
+    // Lets the theme scope rules to a page type without touching the UI bundle.
+    const pageType = f === 'index.html' ? 'app' : /^doc/.test(f) ? 'docs' : 'other';
+    html = html.replace('<html ', `<html data-page="${pageType}" `);
+
     const headStart =
       '<link rel="stylesheet" href="./support-gate.css"/>' +
       '<script src="./support-gate.js"></script>' +
@@ -108,7 +112,7 @@ async function main() {
       !/<title>/.test(html) && `<title>${SITE.name}</title>`,
       !/name="description"/.test(html) && `<meta name="description" content="${SITE.description}"/>`,
       `<meta name="theme-color" content="${SITE.themeColor}"/>`,
-      '<meta name="color-scheme" content="dark"/>',
+      '<meta name="color-scheme" content="light"/>',
       '<meta name="application-name" content="MK1300 V2"/>',
       `<meta property="og:title" content="${SITE.name}"/>`,
       `<meta property="og:description" content="${SITE.description}"/>`,
@@ -116,6 +120,7 @@ async function main() {
       '<link rel="manifest" href="./manifest.webmanifest"/>',
       !/rel="icon"/.test(html) && '<link rel="icon" href="./favicon.ico"/>',
       '<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png"/>',
+      '<link rel="stylesheet" href="./theme-glass.css"/>',
       '<script src="./pwa.js" defer></script>',
       '<script src="./a11y-patch.js" defer></script>',
     ]
@@ -151,6 +156,7 @@ async function main() {
     'firmware-guard.js',
     'pwa.js',
     'a11y-patch.js',
+    'theme-glass.css',
     'favicon.ico',
     'home_device.png',
     ...all.filter((f) => f.startsWith('icons/')),

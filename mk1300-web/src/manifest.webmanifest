@@ -1,0 +1,18 @@
+{
+  "name": "MK1300 V2 Keyboard Software",
+  "short_name": "MK1300 V2",
+  "description": "Configure lighting, key mappings and macros on your Ant Esports MK1300 V2 keyboard, and update its firmware, from the browser.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "categories": ["utilities"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

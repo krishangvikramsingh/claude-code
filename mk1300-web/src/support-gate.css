@@ -1,0 +1,119 @@
+:root {
+  --mk-bg: #07090b;
+  --mk-surface: #12161a;
+  --mk-border: #262d33;
+  --mk-text: #f3f5f6;
+  --mk-muted: #aab3ba;
+  --mk-accent: #ffb800;
+  --mk-accent-text: #1a1300;
+}
+
+.mk-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--mk-bg);
+  color: var(--mk-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mk-gate__card {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px;
+  background: var(--mk-surface);
+  border: 1px solid var(--mk-border);
+  border-radius: 16px;
+}
+
+.mk-gate__title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  outline: none;
+}
+
+.mk-gate__body {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--mk-muted);
+}
+
+.mk-gate__list {
+  margin: 0 0 24px;
+  padding: 0 0 0 20px;
+  list-style: disc; /* the app's CSS reset removes bullets */
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.mk-gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.mk-gate__button,
+.mk-gate__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mk-gate__button {
+  background: var(--mk-accent);
+  color: var(--mk-accent-text);
+  border: 0;
+}
+
+.mk-gate__link {
+  color: var(--mk-text);
+  border: 1px solid var(--mk-border);
+}
+
+@media (hover: hover) {
+  .mk-gate__button:hover { filter: brightness(1.08); }
+  .mk-gate__link:hover { border-color: var(--mk-muted); }
+}
+
+.mk-gate__button:focus-visible,
+.mk-gate__link:focus-visible {
+  outline: 2px solid var(--mk-accent);
+  outline-offset: 3px;
+}
+
+.mk-gate__status {
+  display: block;
+  min-height: 20px; /* reserved so the message never shifts the layout */
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--mk-muted);
+}
+
+.mk-noscript {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--mk-bg);
+  color: var(--mk-text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  text-align: center;
+}

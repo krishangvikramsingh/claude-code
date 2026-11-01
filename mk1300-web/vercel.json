@@ -1,0 +1,121 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": "dist",
+  "cleanUrls": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'sha256-1QR3FVnmKp4tas5LfVh/ECv1vtPjWH7cF4IFQje8EC4=' 'sha256-8n/nkeXtURNofO83IBbMOgQVX7g8eOkxmmlpKcBv9b0=' 'sha256-CME+p3ajVJLaij0UbvnHEINe5/dIAHqEmVdvtoO6Exs=' 'sha256-FDf+shHy76tK8Xo9XJomgxjX0Bt5GR73nnkD4RouB5k=' 'sha256-Kx/6roeU++QctoEA+yhPS4epxuPqrewgogd8PpvpRB0=' 'sha256-Q+8tPsjVtiDsjF/Cv8FMOpg2Yg91oKFKDAJat1PPb2g=' 'sha256-VY0JpEeYtIsTmcI8S1w79/XkqqvU4hvU4/A/opclzs8=' 'sha256-k5QWLc8sAJGoiQQ2+F6wpabTC6hVCiRp3uko8AKK5iU=' 'sha256-lSq0d5OR6HBP8UV2n8NZvEqpH9pAGk/CZSQPEhk71y8=' 'sha256-mWx7x2LSPEGmHrVVCThrXM2IuznQKruVL4wegcM7Z3Y=' 'sha256-oaFx7Djcy5UNEYTupAtgdozax9PrPk0i1RK0PwllMbY=' 'sha256-u4lC9UR5weykFCaYy97PbQJfr6FzZir/YOieSiSivLk=' 'sha256-zoiqvl/eChI3mdL+Z1Bjjf+duy7UxX2QAcdwjkuR9jk='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "hid=(self), usb=(self), camera=(), microphone=(), geolocation=(), payment=(), serial=()"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        }
+      ]
+    },
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.bin",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/update.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/firmware-manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/version.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    }
+  ]
+}
